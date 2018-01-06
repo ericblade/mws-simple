@@ -99,7 +99,7 @@ describe('Requirements to perform API tests', () => {
 
 describe('API tests', () => {
     let mwsApi = {};
-    beforeEach(() => {
+    beforeEach(function () {
         if (SkipAPITests) {
             return this.skip();
         } else {
