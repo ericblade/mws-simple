@@ -1,6 +1,8 @@
 [![codebeat badge](https://codebeat.co/badges/8645439c-2be6-4c45-acca-aaf6ac449531)](https://codebeat.co/projects/github-com-ericblade-mws-simple-master)
 # mws-simple
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ericblade/mws-simple.svg)](https://greenkeeper.io/)
+
 nodejs Amazon MWS API in (about) 100 lines of code
 
 which means that you will have to do more work in order to make api calls but gives you the most control.  Response uses xml2js or csv-parse for conversion.
