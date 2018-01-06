@@ -9,6 +9,10 @@ If you are looking to do something with MWS, but not involve yourself in all the
 you may want to have a look at mws-advanced: http://www.github.com/ericblade/mws-advanced
 
 Defaults to US marketplace settings, but can code to override default
+
+v2 branch requires node v8 or v9, tested with v8.9.4 and higher. Use v1 branch if you require
+older versions of node for some reason.
+
 ## Installation
 
 npm install mws-simple

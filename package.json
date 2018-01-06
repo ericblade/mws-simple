@@ -1,7 +1,7 @@
 {
   "name": "mws-simple",
-  "version": "1.0.8",
-  "description": "nodejs Amazon MWS API in 100 lines of code",
+  "version": "2.0.1",
+  "description": "nodejs Amazon MWS API in ~100 lines of code",
   "main": "mws-simple.js",
   "dependencies": {
     "csv-parse": "^1.1.1",

@@ -1,4 +1,4 @@
-'use strict';
+const fs = require('fs');
 
 const MWS = require('..');
 const chai = require('chai');
@@ -26,14 +26,22 @@ describe('Sanity', () => {
         expect(new MWS()).to.be.instanceOf(MWS);
         done();
     });
-    it ('mws-simple configures default host and port correctly', (done) => {
-        const mws = new MWS({});
+    it ('mws-simple configures default host, port, appId, appVersionId correctly', (done) => {
+        const mws = new MWS();
         expect(mws).to.include.all.keys(
             'host',
             'port',
             'appId',
             'appVersionId'
         );
+        expect(mws.host).to.equal('mws.amazonservices.com');
+        expect(mws.port).to.equal(443);
+        expect(mws.appId).to.equal(packageInfo.name);
+        expect(mws.appVersionId).to.equal(packageInfo.version);
+        done();
+    });
+    it ('mws-simple defaults host, port, appId, appVersionId correctly when other paramaters are given', (done) => {
+        const mws = new MWS({ accessKeyId: 'test', secretAccessKey: 'test', merchantId: 'test' });
         expect(mws.host).to.equal('mws.amazonservices.com');
         expect(mws.port).to.equal(443);
         expect(mws.appId).to.equal(packageInfo.name);
@@ -108,6 +116,14 @@ describe('API tests', () => {
             mwsApi = new MWS(keys);
         }
     });
+    before(() => {
+        try {
+            fs.unlinkSync('./test-rawdata.txt');
+            fs.unlinkSync('./test-parseddata.txt');
+        } catch (err) {}
+        expect(fs.existsSync('./test-rawdata.txt')).to.equal(false);
+        expect(fs.existsSync('./test-parseddata.txt')).to.equal(false);
+    });
     // TODO: test response from bad API call:
     // {"ErrorResponse":{"$":{"xmlns":"https://mws.amazonservices.com/JunkTest/2011-07-01"},"Error":[{"Type":["Sender"],"Code":["InvalidAddress"],"Message":["Operation ListMarketplaces is not available for section Sellers/2011-07-01"]}],"RequestID":["736ecd92-d162-4094-9e33-4bf2d0c6bc9c"]}}
     it('test /Sellers/2011-07-01 ListMarketplaceParticipations', function test(done) {
@@ -137,6 +153,26 @@ describe('API tests', () => {
             expect(response.ResponseMetadata).to.be.an('array').with.lengthOf(1);
             done();
         });
+    });
+    it('test that debugOptions file writing works', function testFileWriting(done) {
+        const query = {
+            path: '/Sellers/2011-07-01',
+            query: {
+                Action: 'ListMarketplaceParticipations',
+                Version: '2011-07-01',
+            },
+        };
+        mwsApi.request(
+            query,
+            (err, result) => {
+                expect(fs.existsSync('./test-rawdata.txt')).to.equal(true);
+                expect(fs.existsSync('./test-parseddata.txt')).to.equal(true);
+                fs.unlinkSync('./test-rawdata.txt');
+                fs.unlinkSync('./test-parseddata.txt');
+                done();
+            },
+            { rawFile: './test-rawdata.txt', parsedFile: './test-parseddata.txt'}
+        );
     });
     it('test /Products/2011-10-01 GetLowestPricedOffersForASIN', function testLowestPricedOffersASIN(done) {
         const query = {
