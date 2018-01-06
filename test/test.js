@@ -30,7 +30,7 @@ describe('Sanity', () => {
             'host',
             'port',
             'appId',
-            'appVersionId',
+            'appVersionId'
         );
         expect(mws.host).to.equal('mws.amazonservices.com');
         expect(mws.port).to.equal(443);
@@ -47,7 +47,7 @@ describe('Sanity', () => {
             accessKeyId: 'accessKey',
             secretAccessKey: 'secretKey',
             merchantId: 'merchantId',
-            authToken: 'authToken',
+            authToken: 'authToken'
         });
         expect(mws).to.include.all.keys(
             'accessKeyId',
@@ -87,11 +87,11 @@ if (!keys || !keys.accessKeyId || !keys.secretAccessKey || !keys.merchantId) {
 describe('Requirements to perform API tests', () => {
     if ('a valid keys.json file is in the test directory', (done) => {
         expect(keys,
-            'please provide a keys.json file with accessKeyId, secretAccessKey, and merchantId',
+            'please provide a keys.json file with accessKeyId, secretAccessKey, and merchantId'
         ).to.include.all.keys(
             'accessKeyId',
             'secretAccessKey',
-            'merchantId',
+            'merchantId'
         );
         done();
     });
@@ -127,7 +127,7 @@ describe('API tests', () => {
             expect(response).to.be.an('object').and.contain.keys(
                 '$',
                 'ListMarketplaceParticipationsResult',
-                'ResponseMetadata',
+                'ResponseMetadata'
             );
             expect(response.$.xmlns).to.be.a('string').and.equal('https://mws.amazonservices.com/Sellers/2011-07-01');
             // TODO: we could stand to fill out the tests of received data a little more fully.
@@ -159,7 +159,7 @@ describe('API tests', () => {
             expect(response).to.be.an('object').and.contain.keys(
                 '$',
                 'GetLowestPricedOffersForASINResult',
-                'ResponseMetadata',
+                'ResponseMetadata'
             );
             expect(response.$.xmlns).to.be.a('string').and.equal('http://mws.amazonservices.com/schema/Products/2011-10-01');
             done();
