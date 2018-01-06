@@ -1,3 +1,5 @@
+'use strict';
+
 const MWS = require('..');
 const chai = require('chai');
 
