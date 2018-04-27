@@ -72,6 +72,8 @@ MWSSimple.prototype.request = function (requestData, callback, debugOptions) {
         }
     }
 
+    // mws throws an error if you try to post feedContent with form data, only works if you use query string form.
+    const formOrQuery = newRequestData.feedContent ? 'qs' : 'form';
     const options = {
         url: `https://${this.host}:${this.port}${newRequestData.path}`,
         headers: {
@@ -81,7 +83,7 @@ MWSSimple.prototype.request = function (requestData, callback, debugOptions) {
             'Content-Type': contentType,
             'Content-MD5': newRequestData.feedContent ? crypto.createHash('md5').update(newRequestData.feedContent).digest('base64') : undefined,
         },
-        form: newRequestData.query,
+        [formOrQuery]: newRequestData.query,
         body: newRequestData.feedContent,
     };
 

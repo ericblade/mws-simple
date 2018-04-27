@@ -1,0 +1,2 @@
+sku	price	minimum-seller-allowed-price	maximum-seller-allowed-price	quantity	handling-time	fulfillment-channel
+PO-TON5-ZUPT	34.99	9.99	199.99	1		
