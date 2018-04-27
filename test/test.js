@@ -238,7 +238,7 @@ describe('API tests', () => {
             ...query,
         };
         mwsApi.request(submitFeed, function(err, res) {
-            expect(err).to.be.undefined;
+            expect(err).to.be.null;
             expect(res).to.be.an.object.with.keys(
                 [ '$', 'SubmitFeedResult', 'ResponseMetaData', ],
             );

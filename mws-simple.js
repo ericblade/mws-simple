@@ -101,7 +101,6 @@ MWSSimple.prototype.request = function (requestData, callback, debugOptions) {
             cb(err, result);
         }
         request.post(options, function (error, response, body) {
-            console.warn('**** request.post opt', options);
             if (debug.rawFile) {
                 syncWriteToFile(debug.rawFile, `\nerror= ${error}\nresponse= ${JSON.stringify(response)}\nbody= ${body}\n`);
             }
