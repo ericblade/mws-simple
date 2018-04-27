@@ -99,9 +99,9 @@ if (!keys || !keys.accessKeyId || !keys.secretAccessKey || !keys.merchantId) {
 }
 
 describe('Requirements to perform API tests', () => {
-    if ('a valid keys.json file is in the test directory', (done) => {
+    if ('a valid keys.json file is in the test directory or keys available in environment', (done) => {
         expect(keys,
-            'please provide a keys.json file with accessKeyId, secretAccessKey, and merchantId'
+            'please provide a keys.json file with accessKeyId, secretAccessKey, and merchantId, or set MWS_ACCESS_KEY, MWS_SECRET_ACCESS_KEY, MWS_MERCHANT_ID in environment'
         ).to.include.all.keys(
             'accessKeyId',
             'secretAccessKey',
@@ -220,6 +220,28 @@ describe('API tests', () => {
                 'ResponseMetadata'
             );
             expect(response.$.xmlns).to.be.a('string').and.equal('http://mws.amazonservices.com/schema/Products/2011-10-01');
+            done();
+        });
+    });
+    it('test SubmitFeed', function testSubmitFees(done) {
+        const query = {
+            path: '/Feeds/2009-01-01',
+            query: {
+                Action: 'SubmitFeed',
+                Version: '2009-01-01',
+                'MarketplaceIdList.Id.1': 'ATVPDKIKX0DER',
+                FeedType: '_POST_INVENTORY_AVAILABILITY_DATA_',
+            },
+        };
+        const submitFeed = {
+            feedContent: require('fs').readFileSync('./test/test-feed.txt'),
+            ...query,
+        };
+        mwsApi.request(submitFeed, function(err, res) {
+            expect(err).to.be.undefined;
+            expect(res).to.be.an.object.with.keys(
+                [ '$', 'SubmitFeedResult', 'ResponseMetaData', ],
+            );
             done();
         });
     });

@@ -70,6 +70,7 @@ mws.request(listOrders, function(e, result) {
 ``` javascript
 let submitFeed = {
   feedContent: require('fs').readFileSync('amazon-shipments.tab'),
+  path: '/Feeds/2009-01-01',
   query: {
     Action: 'SubmitFeed',
     Version: '2009-01-01',
