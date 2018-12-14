@@ -134,7 +134,7 @@ describe('API tests', () => {
                 Version: '2018-02-14',
             },
         };
-        mwsApi.request(query, (err, result, headers) => {
+        mwsApi.request(query, (err, { result, headers }) => {
             expect(err).to.be.an.instanceOf(mwsApi.ServerError);
             expect(result).to.equal(undefined);
             expect(headers).to.be.an('object').that.has.keys([
@@ -148,6 +148,24 @@ describe('API tests', () => {
             done();
         });
     });
+    it('request with no callback returns a Promise', async function testPromise() {
+        const query = {
+            path: '/Test/Test',
+            query: {
+                Action: 'TestForPromise',
+                Version: '2018-02-14',
+            },
+        };
+        const p = mwsApi.request(query);
+        expect(p).to.be.an.instanceOf(Promise);
+        try {
+            await p;
+        } catch (err) {
+            expect(err.message).to.equal('Not Found');
+            expect(err.code).to.equal(404);
+            expect(err.body).to.be.a('string');
+        }
+    });
     // we generally don't use this call because it has an extremely low throttle rate, according to the docs.
     // it('GetServiceStatus', function testThrottle(done) {
     //     const query = {
@@ -157,9 +175,9 @@ describe('API tests', () => {
     //             Version: '2011-07-01',
     //         },
     //     };
-    //     mwsApi.request(query, (err, res) => {
+    //     mwsApi.request(query, (err, { result, headers }) => {
     //         console.warn('**** err', JSON.stringify(err, null, 4));
-    //         console.warn('***** res', JSON.stringify(res, null, 4));
+    //         console.warn('***** res', JSON.stringify(result, null, 4));
     //         done();
     //     });
     // });
@@ -171,7 +189,7 @@ describe('API tests', () => {
                 Version: '2011-07-01',
             },
         };
-        mwsApi.request(query, (err, result, headers) => {
+        mwsApi.request(query, (err, { result, headers }) => {
             if (err) {
                 done(err);
                 return false;
@@ -205,7 +223,7 @@ describe('API tests', () => {
         };
         mwsApi.request(
             query,
-            (err, result) => {
+            (err, { result, headers }) => {
                 expect(fs.existsSync('./test-rawdata.txt')).to.equal(true);
                 expect(fs.existsSync('./test-parseddata.txt')).to.equal(true);
                 fs.unlinkSync('./test-rawdata.txt');
@@ -226,7 +244,7 @@ describe('API tests', () => {
                 ItemCondition: 'New',
             },
         };
-        mwsApi.request(query, (err, result, headers) => {
+        mwsApi.request(query, (err, { result, headers }) => {
             if (err) {
                 done(err);
                 return;
@@ -265,12 +283,12 @@ describe('API tests', () => {
             feedContent: require('fs').readFileSync('./test/test-feed.txt'),
             ...query,
         };
-        mwsApi.request(submitFeed, function(err, res) {
+        mwsApi.request(submitFeed, function(err, { result, headers }) {
             expect(err).to.be.null;
-            expect(res).to.be.an('object').with.keys(
+            expect(result).to.be.an('object').with.keys(
                 [ 'SubmitFeedResponse', ],
             );
-            const x = res.SubmitFeedResponse;
+            const x = result.SubmitFeedResponse;
             expect(x).to.be.an('object').with.keys(
                 ['$', 'SubmitFeedResult', 'ResponseMetadata']
             );
@@ -295,7 +313,7 @@ describe('API tests', () => {
                 'FeesEstimateRequestList.FeesEstimateRequest.1.PriceToEstimateFees.Points.PointsNumber': '0',
             },
         };
-        mwsApi.request(query, (err, result) => {
+        mwsApi.request(query, (err, { result, headers }) => {
             // console.warn('* err=', err);
             // console.warn('* result=', result);
             expect(result).to.be.an('object').and.contain.key('GetMyFeesEstimateResponse');

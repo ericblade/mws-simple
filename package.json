@@ -1,6 +1,6 @@
 {
   "name": "mws-simple",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "nodejs Amazon MWS API in ~150 lines of code",
   "main": "mws-simple.js",
   "dependencies": {
