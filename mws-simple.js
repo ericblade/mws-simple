@@ -17,7 +17,7 @@ class MWSSimple {
     constructor({ appId = pkgAppId, appVersionId = pkgAppVersionId, host = 'mws.amazonservices.com', port = 443, accessKeyId, secretAccessKey, merchantId, authToken } = {}) {
         Object.assign(this, { appId, appVersionId, host, port, accessKeyId, secretAccessKey, merchantId, authToken, ServerError });
         
-        // allows to use this inside the request method
+        // allows to use this inside the promisify method
         promisify = promisify.bind(this);
     }
 
