@@ -6,26 +6,25 @@ const getContentType = require('./lib/getContentType');
 
 const { name: pkgAppId, version: pkgAppVersionId } = require('./package.json'); // pkgAppId=name, pkgAppVersionId=version
 
-function promisify (data) {
-    return new Promise ((resolve, reject) => {
-        this.request(data, (err, result) => 
-            err ? reject(err) : resolve(result))
-    });
-}
-
 class MWSSimple {
     constructor({ appId = pkgAppId, appVersionId = pkgAppVersionId, host = 'mws.amazonservices.com', port = 443, accessKeyId, secretAccessKey, merchantId, authToken } = {}) {
         Object.assign(this, { appId, appVersionId, host, port, accessKeyId, secretAccessKey, merchantId, authToken, ServerError });
         
         // allows to use this inside the request method
-        promisify = promisify.bind(this);
+        this.request = this.request.bind(this);
     }
 
     // http://docs.developer.amazonservices.com/en_US/dev_guide/DG_ClientLibraries.html
     request(requestData, callback, debugOptions) {
+        const self = this.request;
+
         // if no callback specified return a Promise
         if (callback === undefined) {
-            return promisify(requestData);
+            return new Promise ((resolve, reject) => {
+                self(requestData, (err, result) => {
+                    err ? reject(err) : resolve(result);
+                });
+            });
         }
 
         const requestDefaults = {
