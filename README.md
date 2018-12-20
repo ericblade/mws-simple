@@ -12,7 +12,7 @@ you may want to have a look at mws-advanced: http://www.github.com/ericblade/mws
 
 Defaults to US marketplace settings, but can code to override default
 
-v2 and master branches requires node v8 or v9, tested with v8.9.4 and higher. Use v1 branch if you require
+v2,v3 branches requires node v8 or v9, tested with v8.9.4 and higher. Use v1 branch if you require
 older versions of node for some reason.
 
 ## Installation
@@ -180,10 +180,9 @@ Yes, please!
 
 Thank you!
 
-* [avrtau](https://github.com/avrtau) Avraham Tauberman
 * [ericblade](https://github.com/ericblade) Eric Blade
 * [tomjnsn](https://github.com/tomjnsn) Tom Jensen
-* [ebusinessdirect](https://github.com/ebusinessdirect) Original Author, Roger Endo
+* [ebusinessdirect](https://github.com/ebusinessdirect) Original Author
 
 ## License
 
