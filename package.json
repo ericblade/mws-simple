@@ -5,14 +5,14 @@
   "main": "mws-simple.js",
   "dependencies": {
     "csv-parse": "^4.0.0",
-    "query-string": "^6.1.0",
+    "query-string": "^6.2.0",
     "request": "^2.88.0",
     "xml2js": "^0.4.16"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
+    "chai": "^4.2.0",
     "coveralls": "^3.0.2",
-    "eslint": "^5.0.0",
+    "eslint": "^5.11.1",
     "mocha": "^5.2.0",
     "mocha-lcov-reporter": "^1.3.0",
     "nyc": "^12.0.2"
