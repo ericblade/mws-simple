@@ -1,6 +1,7 @@
 import { IncomingHttpHeaders } from 'http';
 import crypto from 'crypto';
 import ServerError from './ServerError';
+// eslint-disable-next-line import/no-cycle
 import makeRequest from './makeRequest';
 import makeSignature from './makeSignature';
 import getContentType from './getContentType';
