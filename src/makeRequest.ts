@@ -5,10 +5,12 @@ import request, {
     UrlOptions,
 } from 'request';
 import { IncomingHttpHeaders } from 'http';
+// eslint-disable-next-line import/no-cycle
 import { DebugOptions } from './mws-simple';
 
 import syncWriteToFile from './syncWriteToFile';
 import ServerError from './ServerError';
+// eslint-disable-next-line import/no-named-as-default
 import processRequest from './processRequest';
 
 /* eslint-disable prefer-arrow-callback, consistent-return, max-len, no-console */
