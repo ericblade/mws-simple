@@ -1,3 +1,5 @@
+## [5.1.1](https://github.com/ericblade/mws-simple/compare/5.1.0...5.1.1) (2020-04-25)
+
 # [5.1.0](https://github.com/ericblade/mws-simple/compare/5.0.4...5.1.0) (2020-03-16)
 
 ## [5.0.4](https://github.com/ericblade/mws-simple/compare/5.0.3...5.0.4) (2020-03-16)
