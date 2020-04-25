@@ -25,21 +25,21 @@ export interface DebugOptions {
 }
 
 class MWSSimple {
-    accessKeyId: string = '';
+    readonly accessKeyId: string = '';
 
-    appId: string = '';
+    readonly appId: string = '';
 
-    appVersionId: string = '';
+    readonly appVersionId: string = '';
 
-    merchantId: string = '';
+    readonly merchantId: string = '';
 
-    authToken: string = '';
+    readonly authToken: string = '';
 
-    host: string = '';
+    readonly host: string = '';
 
-    port: number;
+    readonly port: number;
 
-    secretAccessKey: string = '';
+    readonly secretAccessKey: string = '';
 
     constructor({
         appId = pkgAppId,
