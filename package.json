@@ -19,7 +19,7 @@
     "@semantic-release/release-notes-generator": "^9.0.1",
     "@types/request": "^2.48.4",
     "@types/xml2js": "^0.4.5",
-    "@typescript-eslint/eslint-plugin": "^2.29.0",
+    "@typescript-eslint/eslint-plugin": "^3.0.0",
     "chai": "^4.2.0",
     "conventional-changelog-eslint": "^3.0.4",
     "coveralls": "^3.1.0",
