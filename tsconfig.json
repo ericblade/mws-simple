@@ -4,7 +4,7 @@
         "sourceMap": false,
         "esModuleInterop": true,
         "resolveJsonModule": true,
-        "allowJs": true,
+        "allowJs": false,
         "noImplicitAny": true,
         "moduleResolution": "node",
         "lib": [ "es2018" ],
@@ -12,7 +12,8 @@
         "target": "ES2018",
         "baseUrl": ".",
         "outDir": "./lib",
-        "rootDir": "./src"
+        "rootDir": "./src",
+        "strict": true
     },
     "include": ["./src/**/*"],
     "exclude": ["node_modules"]

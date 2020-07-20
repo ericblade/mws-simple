@@ -20,7 +20,7 @@ export default (
     cb: (err: Error | null, results: { result?: any, headers: IncomingHttpHeaders }) => void,
 ) => {
     request.post(options, function postRequest(error: Error | null, response: Response, body: string) {
-        function logDataDoCallback(err: Error | null, result: any, file: string, data: string) {
+        function logDataDoCallback(err: Error | null, result: any, file: string | undefined, data: string) {
             if (file) {
                 syncWriteToFile(file, data);
             }
@@ -38,7 +38,7 @@ export default (
             return cb(new ServerError(response.statusMessage, response.statusCode, response.body), { result: null, headers: response && response.headers });
         }
 
-        const contentType = Object.prototype.hasOwnProperty.call(response.headers, 'content-type') && response.headers['content-type'];
+        const contentType = (Object.prototype.hasOwnProperty.call(response.headers, 'content-type') && response.headers['content-type']) as string;
         processRequest({ contentType, body }, (err: Error | null, result: any) => (
             logDataDoCallback(err, result, debug.parsedFile, `\nerror=${err}\nresult=${JSON.stringify(result)}\n`)
         ));

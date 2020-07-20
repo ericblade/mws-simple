@@ -13,9 +13,9 @@ const processXmlRequest = (
 
 const processTextRequest = (body: string, callback: (err: Error | null, result: any) => void) => {
     if (typeof body === 'string' && (body.indexOf('\t') === -1 || body.startsWith('Feed Processing Summary'))) {
-        callback(undefined, body);
+        callback(null, body);
     } else {
-        tabParser(body, { delimiter: '\t', columns: true, relax: true }, (err, result) => callback(err, result));
+        tabParser(body, { delimiter: '\t', columns: true, relax: true }, (err, result) => callback(err || null, result));
     }
 };
 
@@ -28,7 +28,7 @@ const processRequest = (
         processTextRequest(body, callback);
     } else {
         console.warn('**** mws-simple: unknown content-type', contentType);
-        callback(undefined, body);
+        callback(null, body);
     }
 };
 

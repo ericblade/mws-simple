@@ -1,6 +1,6 @@
 {
   "name": "@ericblade/mws-simple",
-  "version": "5.1.1",
+  "version": "5.1.2",
   "description": "Modern, full featured nodejs Amazon MWS API in ~150 lines of code",
   "main": "lib/mws-simple.js",
   "dependencies": {

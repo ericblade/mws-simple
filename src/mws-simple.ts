@@ -37,7 +37,7 @@ class MWSSimple {
 
     readonly host: string = '';
 
-    readonly port: number;
+    readonly port: number = 443;
 
     readonly secretAccessKey: string = '';
 
@@ -84,7 +84,7 @@ class MWSSimple {
         if (callback === undefined) {
             return new Promise(
                 (resolve, reject) => self(
-                    requestData, (err: Error, result: any) => (err ? reject(err) : resolve(result)),
+                    requestData, (err: Error | null, result: any) => (err ? reject(err) : resolve(result)),
                 ),
             );
         }

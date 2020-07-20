@@ -75,14 +75,14 @@ declare namespace mws {
     };
     export type AdjustmentEvent = {
         AdjustmentType:
-            | 'FBAInventoryReimbursement'
-            | 'ReserveEvent'
-            | 'PostageBilling'
-            | 'PostageRefund'
-            | 'LostOrDamagedReimbursement'
-            | 'CanceledButPickedUpReimbursement'
-            | 'ReimbursementClawback'
-            | 'SellerRewards';
+        | 'FBAInventoryReimbursement'
+        | 'ReserveEvent'
+        | 'PostageBilling'
+        | 'PostageRefund'
+        | 'LostOrDamagedReimbursement'
+        | 'CanceledButPickedUpReimbursement'
+        | 'ReimbursementClawback'
+        | 'SellerRewards';
         AdjustmentAmount: CurrencyAmount;
         AdjustmentItemList: Array<AdjustmentItem>;
         PostedDate: DateTime;
@@ -103,37 +103,37 @@ declare namespace mws {
     export type AffordabilityExpenseReversalEvent = AffordabilityExpenseEvent;
     export type ChargeComponent = {
         ChargeType?:
-            | 'Principal'
-            | 'Tax'
-            | 'MarketplaceFacilitatorTax-Principal'
-            | 'MarketplaceFacilitatorTax-Shipping'
-            | 'MarketplaceFacilitatorTax-Giftwrap'
-            | 'MarketplaceFacilitatorTax-Other'
-            | 'Discount'
-            | 'TaxDiscount'
-            | 'CODItemCharge'
-            | 'CODItemTaxCharge'
-            | 'CODOrderCharge'
-            | 'CODOrderTaxCharge'
-            | 'CODShippingCharge'
-            | 'CODShippingTaxCharge'
-            | 'ShippingCharge'
-            | 'ShippingTax'
-            | 'Goodwill'
-            | 'Giftwrap'
-            | 'GiftwrapTax'
-            | 'RestockingFee'
-            | 'ReturnShipping'
-            | 'PointsFee'
-            | 'GenericDeduction'
-            | 'FreeReplacementReturnShipping'
-            | 'PaymentMethodFee'
-            | 'ExportCharge'
-            | 'SAFE-TReimbursement'
-            | 'TCS-CGST'
-            | 'TCS-SGST'
-            | 'TCS-IGST'
-            | 'TCS-UTGST';
+        | 'Principal'
+        | 'Tax'
+        | 'MarketplaceFacilitatorTax-Principal'
+        | 'MarketplaceFacilitatorTax-Shipping'
+        | 'MarketplaceFacilitatorTax-Giftwrap'
+        | 'MarketplaceFacilitatorTax-Other'
+        | 'Discount'
+        | 'TaxDiscount'
+        | 'CODItemCharge'
+        | 'CODItemTaxCharge'
+        | 'CODOrderCharge'
+        | 'CODOrderTaxCharge'
+        | 'CODShippingCharge'
+        | 'CODShippingTaxCharge'
+        | 'ShippingCharge'
+        | 'ShippingTax'
+        | 'Goodwill'
+        | 'Giftwrap'
+        | 'GiftwrapTax'
+        | 'RestockingFee'
+        | 'ReturnShipping'
+        | 'PointsFee'
+        | 'GenericDeduction'
+        | 'FreeReplacementReturnShipping'
+        | 'PaymentMethodFee'
+        | 'ExportCharge'
+        | 'SAFE-TReimbursement'
+        | 'TCS-CGST'
+        | 'TCS-SGST'
+        | 'TCS-IGST'
+        | 'TCS-UTGST';
         ChargeAmount?: CurrencyAmount;
     };
     export type ChargeInstrument = {
@@ -166,12 +166,12 @@ declare namespace mws {
     };
     export type DirectPayment = {
         DirectPaymentType?:
-            | 'StoredValueCardRevenue'
-            | 'StoredValueCardRefund'
-            | 'PrivateLabelCreditCardRevenue'
-            | 'PrivateLabelCreditCardRefund'
-            | 'CollectOnDeliveryRevenue'
-            | 'CollectOnDeliveryRefund';
+        | 'StoredValueCardRevenue'
+        | 'StoredValueCardRefund'
+        | 'PrivateLabelCreditCardRevenue'
+        | 'PrivateLabelCreditCardRefund'
+        | 'CollectOnDeliveryRevenue'
+        | 'CollectOnDeliveryRefund';
         DirectPaymentAmount?: CurrencyAmount;
     };
     export type FBALiquidationEvent = {
@@ -208,3 +208,5 @@ declare namespace mws {
     //     RetrochargeEventList?: Array<RetrochargeEvent>;
     // }
 }
+
+export default mws;
