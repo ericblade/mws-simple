@@ -1,13 +1,13 @@
 {
   "name": "@ericblade/mws-simple",
-  "version": "5.1.1",
+  "version": "5.1.2",
   "description": "Modern, full featured nodejs Amazon MWS API in ~150 lines of code",
   "main": "lib/mws-simple.js",
   "dependencies": {
-    "csv-parse": "^4.10.1",
+    "csv-parse": "^4.11.1",
     "query-string": "^6.13.1",
     "request": "^2.88.2",
-    "typescript": "^3.9.5",
+    "typescript": "^3.9.7",
     "xml2js": "^0.4.23"
   },
   "devDependencies": {
@@ -20,12 +20,12 @@
     "@types/node-fetch": "^2.5.7",
     "@types/request": "^2.48.5",
     "@types/xml2js": "^0.4.5",
-    "@typescript-eslint/eslint-plugin": "^3.5.0",
+    "@typescript-eslint/eslint-plugin": "^3.6.1",
     "chai": "^4.2.0",
     "conventional-changelog-eslint": "^3.0.8",
     "coveralls": "^3.1.0",
-    "eslint": "^7.3.1",
-    "eslint-config-airbnb-typescript": "^8.0.2",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-typescript": "^9.0.0",
     "eslint-plugin-import": "^2.22.0",
     "mocha": "^8.0.1",
     "mocha-lcov-reporter": "^1.3.0",
