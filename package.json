@@ -5,7 +5,7 @@
   "main": "lib/mws-simple.js",
   "dependencies": {
     "csv-parse": "^4.13.1",
-    "query-string": "^6.13.6",
+    "query-string": "^6.13.7",
     "request": "^2.88.2",
     "typescript": "^3.9.7",
     "xml2js": "^0.4.23"
