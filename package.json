@@ -7,7 +7,7 @@
     "csv-parse": "^4.15.1",
     "query-string": "^6.13.7",
     "request": "^2.88.2",
-    "typescript": "^4.1.4",
+    "typescript": "^4.1.5",
     "xml2js": "^0.4.23"
   },
   "devDependencies": {
